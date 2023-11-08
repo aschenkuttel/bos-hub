@@ -38,6 +38,18 @@ export default function Browse() {
                 <Search />
 
                 <div className="flex flex-col gap-4 mt-8">
+                    <BaseCard className='flex gap-4'>
+                        {Array(5).fill(0).map((_, i) => {
+                           return <AppDisplayBottom
+                               key={`spotlight_${i}`}
+                               app={apps[i]}
+                               wrapperClassName='flex-1'
+                               iconClassName='aspect-square'
+                               size={null}
+                           />
+                        })}
+                    </BaseCard>
+
                     <BaseCard className="flex w-full">
                         <div className="flex-1 flex flex-col gap-4">
                             <p>Most Bookmarked</p>
@@ -47,7 +59,7 @@ export default function Browse() {
                                 .map((_, i) => {
                                     return (
                                         <div key={i} className='w-full flex justify-between items-center'>
-                                            <AppDisplaySide {...apps[i]} />
+                                            <AppDisplaySide app={apps[i]} />
 
                                             <FontAwesomeIcon icon={faBookmark} fixedWidth className="text-gray-300 text-xl hover:text-indigo-600" aria-hidden="true" />
                                         </div>
@@ -55,9 +67,7 @@ export default function Browse() {
                                 })}
                         </div>
 
-                        <div className='border-l mx-8 my-4'>
-
-                        </div>
+                        <div className='border-l mx-8 my-4' />
 
                         <div className="flex-1 flex flex-col gap-4">
                             <p>Trending</p>
@@ -67,7 +77,7 @@ export default function Browse() {
                                 .map((_, i) => {
                                     return (
                                         <div key={i} className='w-full flex justify-between items-center pr-4'>
-                                            <AppDisplaySide {...apps[i]} />
+                                            <AppDisplaySide app={apps[i]} />
 
                                             <FontAwesomeIcon icon={faBookmark} fixedWidth className="text-gray-300 hover:text-indigo-600 text-xl" aria-hidden="true" />
                                         </div>
@@ -83,7 +93,7 @@ export default function Browse() {
                             </p>
                             <div className="flex gap-4 rounded-lg mt-2">
                                 {apps.map((app) => {
-                                    return <AppDisplayBottom key={app.name} {...app} />
+                                    return <AppDisplayBottom key={app.name} app={app} />
                                 })}
                             </div>
                         </div>
@@ -94,7 +104,7 @@ export default function Browse() {
                             </p>
                             <div className="flex gap-4 rounded-lg mt-2">
                                 {apps.map((app) => {
-                                    return <AppDisplayBottom key={app.name} {...app} />
+                                    return <AppDisplayBottom key={app.name} app={app} />
                                 })}
                             </div>
                         </div>
@@ -105,7 +115,7 @@ export default function Browse() {
                             </p>
                             <div className="flex gap-4 rounded-lg mt-2">
                                 {apps.map((app) => {
-                                    return <AppDisplayBottom key={app.name} {...app} />
+                                    return <AppDisplayBottom key={app.name} app={app} />
                                 })}
                             </div>
                         </div>
@@ -116,7 +126,7 @@ export default function Browse() {
                             </p>
                             <div className="flex gap-4 rounded-lg mt-2">
                                 {apps.map((app) => {
-                                    return <AppDisplayBottom key={app.name} {...app} />
+                                    return <AppDisplayBottom key={app.name} app={app} />
                                 })}
                             </div>
                         </div>
@@ -127,7 +137,7 @@ export default function Browse() {
                             </p>
                             <div className="flex gap-4 rounded-lg mt-2">
                                 {apps.map((app) => {
-                                    return <AppDisplayBottom key={app.name} {...app} />
+                                    return <AppDisplayBottom key={app.name} app={app} />
                                 })}
                             </div>
                         </div>
@@ -138,7 +148,7 @@ export default function Browse() {
                             </p>
                             <div className="flex gap-4 rounded-lg mt-2">
                                 {apps.map((app) => {
-                                    return <AppDisplayBottom key={app.name} {...app} />
+                                    return <AppDisplayBottom key={app.name} app={app} />
                                 })}
                             </div>
                         </div>

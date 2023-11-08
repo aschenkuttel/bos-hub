@@ -1,18 +1,15 @@
 import { useBosLoaderStore } from '@/stores/bos-loader'
 import { useVmStore } from '@/stores/vm'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 export function VmComponent(props) {
     const { EthersProvider, ethersContext, Widget } = useVmStore()
     const redirectMapStore = useBosLoaderStore()
 
-    console.log(EthersProvider)
-    console.log(redirectMapStore.hasResolved)
-
     if (!EthersProvider || !redirectMapStore.hasResolved) {
-        return null // spinner
+        return <FontAwesomeIcon icon={faSpinner} className='text-3xl animate-spin' />
     }
-
-    console.log("else")
 
     return (
         <EthersProvider value={ethersContext}>
