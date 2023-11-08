@@ -1,6 +1,8 @@
 import Search from '@/components/Search'
 import { BaseCard } from '@/components/Card'
 import { AppDisplayBottom, AppDisplaySide } from '@/components/AppDisplay'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 
 const apps = [
     {
@@ -44,13 +46,17 @@ export default function Browse() {
                                 .fill(0)
                                 .map((_, i) => {
                                     return (
-                                        <div key={i} className='w-full flex justify-between pr-4'>
+                                        <div key={i} className='w-full flex justify-between items-center'>
                                             <AppDisplaySide {...apps[i]} />
 
-                                            Bookmark
+                                            <FontAwesomeIcon icon={faBookmark} fixedWidth className="text-gray-300 text-xl hover:text-indigo-600" aria-hidden="true" />
                                         </div>
                                     )
                                 })}
+                        </div>
+
+                        <div className='border-l mx-8 my-4'>
+
                         </div>
 
                         <div className="flex-1 flex flex-col gap-4">
@@ -60,10 +66,10 @@ export default function Browse() {
                                 .fill(0)
                                 .map((_, i) => {
                                     return (
-                                        <div key={i} className='w-full flex justify-between pr-4'>
+                                        <div key={i} className='w-full flex justify-between items-center pr-4'>
                                             <AppDisplaySide {...apps[i]} />
 
-                                            Bookmark
+                                            <FontAwesomeIcon icon={faBookmark} fixedWidth className="text-gray-300 hover:text-indigo-600 text-xl" aria-hidden="true" />
                                         </div>
                                     )
                                 })}
