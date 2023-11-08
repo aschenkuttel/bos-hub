@@ -4,6 +4,9 @@ import { useBosLoaderInitializer } from '@/hooks/useBosLoaderInitializer'
 import { useHashUrlBackwardsCompatibility } from '@/hooks/useHashUrlBackwardsCompatibility'
 import { Inter } from 'next/font/google'
 import Header from '@/components/Header'
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 
 import '@near-wallet-selector/modal-ui/styles.css'
 import '@/styles/globals.css'
