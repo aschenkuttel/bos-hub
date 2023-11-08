@@ -1,9 +1,7 @@
-import Header from '@/components/Header'
-
-export default function Home() {
+export default function Browse() {
     return (
-        <div className='min-h-screen'>
-            <Header />
-        </div>
+            <div className='flex-1 bg-pink-500'>
+
+            </div>
     )
 }
