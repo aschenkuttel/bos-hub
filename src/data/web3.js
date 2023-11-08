@@ -87,7 +87,6 @@ export const onboard = init({
 const defaultEthersProviderContext = { useConnectWallet };
 
 export const useEthersProviderContext = singletonHook(defaultEthersProviderContext, () => {
-    console.log('RENDER');
     const [{ wallet }] = useConnectWallet();
     const [ethersProvider, setEthersProvider] = useState(defaultEthersProviderContext);
 

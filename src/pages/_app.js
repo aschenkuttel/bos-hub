@@ -4,6 +4,8 @@ import { useBosLoaderInitializer } from '@/hooks/useBosLoaderInitializer'
 import { useHashUrlBackwardsCompatibility } from '@/hooks/useHashUrlBackwardsCompatibility'
 import { Inter } from 'next/font/google'
 import Header from '@/components/Header'
+
+import '@near-wallet-selector/modal-ui/styles.css'
 import '@/styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'] })

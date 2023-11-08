@@ -1,10 +1,11 @@
 import { cva } from 'class-variance-authority'
+import clsx from 'clsx'
 
 const button = cva('rounded font-semibold shadow-sm focus-visible:outline', {
     variants: {
         intent: {
             primary:
-                'bg-indigo-600 text-white hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
+                'bg-gray-800 text-white hover:bg-fuchsia-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
         },
         size: {
             xs: 'px-2 py-1 text-xs',
@@ -20,6 +21,13 @@ const button = cva('rounded font-semibold shadow-sm focus-visible:outline', {
     },
 })
 
-export default function Button({ children, intent, size }) {
-    return <button className={button({ intent, size })}>{children}</button>
+export default function Button({ children, intent, size, className, onClick, disabled = false }) {
+    return (
+        <button
+            className={clsx(className, button({ intent, size }))}
+            onClick={onClick}
+            disabled={disabled}>
+            {children}
+        </button>
+    )
 }

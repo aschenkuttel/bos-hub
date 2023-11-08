@@ -33,7 +33,6 @@ import { networkId, signInContractId } from '@/utils/config'
 import { KEYPOM_OPTIONS } from '@/utils/keypom-options'
 
 export default function VmInitializer() {
-    console.log("RENDER")
     const [signedIn, setSignedIn] = useState(false)
     const [signedAccountId, setSignedAccountId] = useState(null)
     const [availableStorage, setAvailableStorage] = useState(null)

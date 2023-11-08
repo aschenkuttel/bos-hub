@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Disclosure } from '@headlessui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faBell, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import clsx from 'clsx'
-import Button from '@/components/Button'
+import Connect from '@/components/Connect'
 
 const NavLink = ({ href, children, active, ...others }) => {
     return (
@@ -13,7 +13,7 @@ const NavLink = ({ href, children, active, ...others }) => {
             href={href}
             className={clsx(
                 'inline-flex items-center px-2 py-1 rounded text-sm font-medium text-gray-900 h-fit',
-                active && 'bg-gray-100',
+                active && 'bg-gray-100'
             )}
             {...others}
         >
@@ -45,7 +45,7 @@ export default function Header() {
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
-                                    <Image width={32} height={32} className="h-8 w-auto" src="" alt="" />
+                                    <Image width={32} height={32} className="h-8 w-auto" src="/logo.png" alt="" />
                                 </div>
                                 <div className="hidden items-center sm:ml-6 sm:flex sm:space-x-8">
                                     {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
@@ -63,7 +63,7 @@ export default function Header() {
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                <Button size="lg">Sign in</Button>
+                                <Connect/>
                             </div>
                         </div>
                     </div>

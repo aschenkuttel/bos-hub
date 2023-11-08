@@ -28,6 +28,7 @@
     "@near-wallet-selector/sender": "8.1.1",
     "@near-wallet-selector/wallet-utils": "8.1.1",
     "@near-wallet-selector/welldone-wallet": "8.1.1",
+    "@tailwindcss/forms": "^0.5.6",
     "@web3-onboard/core": "2.20.2",
     "@web3-onboard/injected-wallets": "2.10.1",
     "@web3-onboard/ledger": "2.4.6",
