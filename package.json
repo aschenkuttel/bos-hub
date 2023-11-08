@@ -9,15 +9,46 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@braintree/sanitize-url": "^6.0.4",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@headlessui/react": "^1.7.17",
+    "@keypom/selector": "^1.2.0",
+    "@near-wallet-selector/core": "8.1.1",
+    "@near-wallet-selector/here-wallet": "8.1.1",
+    "@near-wallet-selector/meteor-wallet": "8.1.1",
+    "@near-wallet-selector/modal-ui": "8.1.1",
+    "@near-wallet-selector/my-near-wallet": "8.1.1",
+    "@near-wallet-selector/near-wallet": "8.1.1",
+    "@near-wallet-selector/neth": "8.1.1",
+    "@near-wallet-selector/nightly": "8.1.1",
+    "@near-wallet-selector/sender": "8.1.1",
+    "@near-wallet-selector/wallet-utils": "8.1.1",
+    "@near-wallet-selector/welldone-wallet": "8.1.1",
+    "@web3-onboard/core": "2.20.2",
+    "@web3-onboard/injected-wallets": "2.10.1",
+    "@web3-onboard/ledger": "2.4.6",
+    "@web3-onboard/react": "2.8.7",
+    "@web3-onboard/walletconnect": "2.3.9",
+    "big.js": "^6.1.1",
+    "clsx": "^2.0.0",
+    "near-api-js": "2.1.3",
+    "near-social-vm": "github:NearSocial/VM#2.2.3",
+    "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.1"
+    "react-singleton-hook": "^4.0.1",
+    "zustand": "^4.4.6"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
     "eslint": "^8",
-    "eslint-config-next": "14.0.1"
+    "eslint-config-next": "14.0.1",
+    "postcss": "^8",
+    "prettier": "3.0.3",
+    "tailwindcss": "^3.3.0"
   }
 }
