@@ -37,7 +37,9 @@ export default function Browse() {
             <div className="w-full max-w-4xl py-16">
                 <Search />
 
-                <div className="flex flex-col gap-4 mt-8">
+                <p className="w-full mt-8 ml-0.5 font-semibold text-xl">Spotlight</p>
+
+                <div className="flex flex-col gap-4 mt-4">
                     <BaseCard className='flex gap-4'>
                         {Array(5).fill(0).map((_, i) => {
                            return <AppDisplayBottom
@@ -49,6 +51,9 @@ export default function Browse() {
                            />
                         })}
                     </BaseCard>
+
+                    <p className="w-full mt-8 ml-0.5 font-semibold text-xl">Popular</p>
+
 
                     <BaseCard className="flex w-full">
                         <div className="flex-1 flex flex-col gap-4">
@@ -85,6 +90,9 @@ export default function Browse() {
                                 })}
                         </div>
                     </BaseCard>
+
+                    <p className="w-full mt-8 ml-0.5 font-semibold text-xl">Discover</p>
+
 
                     <BaseCard className="w-full">
                         <div className='p-4'>
