@@ -35,7 +35,7 @@ const mockApps = [
 
 export default function Browse({ apps }) {
     const randomOne = [2, 8, 4, 6, 1]
-    const randomTwo = [2, 8, 4, 6, 1]
+    const randomTwo = [9, 3, 5, 7, 2]
 
     return (
         <div className="w-full flex-1 flex justify-center p-4">
