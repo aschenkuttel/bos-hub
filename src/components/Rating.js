@@ -10,7 +10,7 @@ export default function Rating({ value }) {
                 {ratingRep}
             </p>
 
-            <FontAwesomeIcon icon={faStar} className='text-teal-700 text-xs' />
+            <FontAwesomeIcon icon={faStar} className='text-yellow-400 text-xs' />
         </div>
     )
 }

@@ -158,7 +158,7 @@ export default function Browse({ apps }) {
 
 export const getServerSideProps = async () => {
     const colRef = collection(db, 'apps')
-    const result = await getDocs(query(colRef, limit(9)))
+    const result = await getDocs(query(colRef, limit(10)))
     const apps = []
 
     result.docs.forEach((doc) => {

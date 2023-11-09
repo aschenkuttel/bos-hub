@@ -42,6 +42,8 @@ export default function App({ Component, pageProps }) {
         }
 
         return onSnapshot(doc(db, "bookmarks", accountId), (doc) => {
+            if (!doc.exists()) return
+
             setBookmarks({ bookmarks: doc.data().bookmarks })
         });
     }, [accountId]) // eslint-disable-line react-hooks/exhaustive-deps
