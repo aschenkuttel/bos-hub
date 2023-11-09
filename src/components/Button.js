@@ -5,7 +5,7 @@ const button = cva('rounded font-semibold shadow-sm focus-visible:outline', {
     variants: {
         intent: {
             primary:
-                'bg-gray-800 text-white hover:bg-fuchsia-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
+                'bg-gray-900 text-white hover:bg-gray-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
         },
         size: {
             xs: 'px-2 py-1 text-xs',

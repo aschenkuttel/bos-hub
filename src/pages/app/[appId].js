@@ -1,12 +1,15 @@
 import { ComponentWrapperPage } from '@/components/ComponentWrapperPage'
 import {db} from '@/lib/firebase/init'
 import {getDoc, doc} from 'firebase/firestore'
-import 'bootstrap/dist/css/bootstrap.css'
-import { IFrame } from '@/components/vm/VmPortal'
-import AppNavigator from '@/components/AppNavigator';
+import AppNavigator from '@/components/AppNavigator'
 
 export default function App({app}) {
-    return <ComponentWrapperPage src={app.src} />
+    return (
+        <div className='relative'>
+            <AppNavigator />
+            <ComponentWrapperPage src={app.src} />
+        </div>
+    )
 }
 
 export const getServerSideProps = async ({params}) => {

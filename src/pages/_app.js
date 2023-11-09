@@ -4,12 +4,16 @@ import { useBosLoaderInitializer } from '@/hooks/useBosLoaderInitializer'
 import { useHashUrlBackwardsCompatibility } from '@/hooks/useHashUrlBackwardsCompatibility'
 import { Inter } from 'next/font/google'
 import Header from '@/components/Header'
+import { db } from '@/lib/firebase/init'
+import { doc, onSnapshot } from 'firebase/firestore'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
 
 import '@near-wallet-selector/modal-ui/styles.css'
 import '@/styles/globals.css'
+import { useEffect } from 'react';
+import { useBookmarkStore } from '@/stores/bookmarks';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,9 +30,15 @@ const VmInitializer = dynamic(
 export default function App({ Component, pageProps }) {
     useBosLoaderInitializer()
     useHashUrlBackwardsCompatibility()
-
+    const setBookmarks = useBookmarkStore((store) => store.set)
     const pathName = usePathname()
-    console.log('pathName: ', pathName)
+
+    useEffect(() => {
+        return onSnapshot(doc(db, "bookmarks", "a0f47bb9dfd5f31ae4ec5576841f8e0f046383ce951d565b7a63c8384f664585"), (doc) => {
+            console.log("Current data: ", doc.data());
+            setBookmarks({ bookmarks: doc.data().bookmarks })
+        });
+    }, [])
 
     return (
         <>

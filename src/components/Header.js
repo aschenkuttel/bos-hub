@@ -47,7 +47,7 @@ export default function Header() {
                                 <div className="flex flex-shrink-0 items-center">
                                     <Image width={32} height={32} className="h-8 w-auto" src="/logo.png" alt="" />
                                 </div>
-                                <div className="hidden items-center sm:ml-6 sm:flex sm:space-x-8">
+                                <div className="hidden items-center sm:ml-6 sm:flex sm:space-x-4">
                                     {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                                     <NavLink href="/" active={pathName === '/'}>
                                         Browse
