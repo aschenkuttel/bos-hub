@@ -1,40 +1,42 @@
 import { collection, getDocs, query, limit } from 'firebase/firestore'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 import { db } from '@/lib/firebase/init'
 import Search from '@/components/Search'
 import { BaseCard } from '@/components/Card'
 import { AppDisplayBottom, AppDisplaySide } from '@/components/AppDisplay'
-import Bookmark from '@/components/Bookmark';
+import Bookmark from '@/components/Bookmark'
+import { shuffle } from '@/utils/misc'
 
 const mockApps = [
     {
         name: 'Example App',
-        rating: 90,
+        rating: 50,
     },
     {
         name: 'Example App',
-        rating: 90,
+        rating: 50,
     },
     {
         name: 'Example App',
-        rating: 90,
+        rating: 50,
     },
     {
         name: 'Example App',
-        rating: 90,
+        rating: 50,
     },
     {
         name: 'Example App',
-        rating: 90,
+        rating: 50,
     },
     {
         name: 'Example App',
-        rating: 90,
+        rating: 50,
     },
 ]
 
 export default function Browse({ apps }) {
+    const randomOne = [2, 8, 4, 6, 1]
+    const randomTwo = [2, 8, 4, 6, 1]
+
     return (
         <div className="w-full flex-1 flex justify-center p-4">
             <div className="w-full max-w-4xl py-16">
@@ -44,7 +46,7 @@ export default function Browse({ apps }) {
 
                 <div className="flex flex-col gap-4 mt-4">
                     <BaseCard className="flex gap-4">
-                        {apps.map((_, i) => {
+                        {apps.slice(0, 5).map((_, i) => {
                             return (
                                 <AppDisplayBottom
                                     key={`spotlight_${i}`}
@@ -63,19 +65,12 @@ export default function Browse({ apps }) {
                         <div className="flex-1 flex flex-col gap-4">
                             <p>Most Bookmarked</p>
 
-                            {Array(5)
-                                .fill(0)
-                                .map((_, i) => {
+                            {randomOne.map((num) => {
                                     return (
-                                        <div key={i} className="w-full flex justify-between items-center">
-                                            <AppDisplaySide app={apps[i]} />
+                                        <div key={num} className="w-full flex justify-between items-center">
+                                            <AppDisplaySide app={apps[num]} size='w-20 h-20' />
 
-                                            <FontAwesomeIcon
-                                                icon={faBookmark}
-                                                fixedWidth
-                                                className="text-gray-300 text-xl hover:text-indigo-600"
-                                                aria-hidden="true"
-                                            />
+                                            <Bookmark appId={apps[num].id} />
                                         </div>
                                     )
                                 })}
@@ -86,14 +81,12 @@ export default function Browse({ apps }) {
                         <div className="flex-1 flex flex-col gap-4">
                             <p>Trending</p>
 
-                            {Array(5)
-                                .fill(0)
-                                .map((_, i) => {
+                            {randomTwo.map((num) => {
                                     return (
-                                        <div key={i} className="w-full flex justify-between items-center pr-4">
-                                            <AppDisplaySide app={apps[i]} />
+                                        <div key={num} className="w-full flex justify-between items-center pr-4">
+                                            <AppDisplaySide app={apps[num]} size='h-20 w-20' />
 
-                                            <Bookmark appId={apps[i].id} />
+                                            <Bookmark appId={apps[num].id} />
                                         </div>
                                     )
                                 })}
@@ -165,7 +158,7 @@ export default function Browse({ apps }) {
 
 export const getServerSideProps = async () => {
     const colRef = collection(db, 'apps')
-    const result = await getDocs(query(colRef, limit(5)))
+    const result = await getDocs(query(colRef, limit(9)))
     const apps = []
 
     result.docs.forEach((doc) => {
@@ -173,6 +166,8 @@ export const getServerSideProps = async () => {
         appData.id = doc.id
         apps.push(appData)
     })
+
+    shuffle(apps)
 
     return {
         props: {

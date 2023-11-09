@@ -6,12 +6,12 @@ import { db } from '@/lib/firebase/init'
 import { useAuthStore } from '@/stores/auth'
 import { useBookmarkStore } from '@/stores/bookmarks'
 
-export default function Bookmark({ appId }) {
+export default function Bookmark({ appId, className, wrapperClassName, size = 'text-xl' }) {
     const localBookmarks = useBookmarkStore((store) => store.bookmarks)
     const accountId = useAuthStore((store) => store.accountId)
 
     const bookmark = async () => {
-        if (!accountId) return
+        if (!accountId || !appId) return
 
         await runTransaction(db, async (transaction) => {
             const bookmarkRef = doc(db, 'bookmarks', accountId)
@@ -40,13 +40,14 @@ export default function Bookmark({ appId }) {
     }
 
     return (
-        <button onClick={bookmark}>
+        <button onClick={bookmark} className={wrapperClassName}>
             <FontAwesomeIcon
                 icon={faBookmark}
                 fixedWidth
                 className={clsx(
-                    'text-gray-300 hover:text-gray-700 text-xl',
-                    localBookmarks.includes(appId) && 'text-purple-600'
+                    'text-gray-300 hover:text-gray-700',
+                    className, size,
+                    localBookmarks.includes(appId) && 'text-teal-700'
                 )}
                 aria-hidden="true"
             />

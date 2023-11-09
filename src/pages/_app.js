@@ -14,6 +14,7 @@ import '@near-wallet-selector/modal-ui/styles.css'
 import '@/styles/globals.css'
 import { useEffect } from 'react';
 import { useBookmarkStore } from '@/stores/bookmarks';
+import { useAuthStore } from '@/stores/auth';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,14 +32,19 @@ export default function App({ Component, pageProps }) {
     useBosLoaderInitializer()
     useHashUrlBackwardsCompatibility()
     const setBookmarks = useBookmarkStore((store) => store.set)
+    const accountId = useAuthStore((store) => store.accountId)
     const pathName = usePathname()
 
     useEffect(() => {
-        return onSnapshot(doc(db, "bookmarks", "a0f47bb9dfd5f31ae4ec5576841f8e0f046383ce951d565b7a63c8384f664585"), (doc) => {
-            console.log("Current data: ", doc.data());
+        if (!accountId) {
+            setBookmarks({ bookmarks: [] })
+            return
+        }
+
+        return onSnapshot(doc(db, "bookmarks", accountId), (doc) => {
             setBookmarks({ bookmarks: doc.data().bookmarks })
         });
-    }, [])
+    }, [accountId]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <>
